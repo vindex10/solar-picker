@@ -7,6 +7,13 @@ Use interactive map to explore the wave height all over the world.
 
 ## For developers
 
+### Build and run
+
+Build: `./run.sh build`
+Run: `./run.sh run`
+
+Then the page will be available on: http://127.0.0.1:5000
+
 ### Frontend
 
 * Is a static html / vanilla js.
