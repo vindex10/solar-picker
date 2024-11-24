@@ -6,6 +6,8 @@ requires-python = ">=3.11"
 dependencies = [
     "fastapi",
     "xarray",
+    "netcdf4",
+    "uvicorn",
 ]
 
 [tool.black]
