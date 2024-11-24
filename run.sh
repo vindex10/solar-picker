@@ -3,7 +3,7 @@ set -u
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 DOCKER="sudo docker"
-NAME=test
+NAME="registry.fly.io/solar-picker:latest"
 
 build() {
 	pushd "$SCRIPT_DIR"
@@ -16,7 +16,7 @@ run() {
 		-v "$SCRIPT_DIR"/backend/src/static/hmax_overall.nc:/root/backend/src/static/hmax_overall.nc \
 		-p 127.0.0.1:5000:5000 \
 		-p 127.0.0.1:8000:8000 \
-		"$NAME"
+		"$NAME" "$@"
 }
 
 cmd="$1";

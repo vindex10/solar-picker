@@ -4,7 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from model.hmax import HMAX
 
 app = FastAPI()
-app.add_middleware(CORSMiddleware, allow_origin_regex=".*")
+app.add_middleware(CORSMiddleware, allow_origins=["*"],     allow_methods=["*"],
+    allow_headers=["*"],)
 
 
 @app.get("/hmax")
