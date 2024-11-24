@@ -1,0 +1,31 @@
+# fly.toml app configuration file generated for solar-picker on 2024-11-24T13:48:48+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'solar-picker'
+primary_region = 'ams'
+
+[[vm]]
+  size = 'shared-cpu-1x'
+  memory = "512mb"
+  cpus = 1
+
+[build]
+  image = "registry.fly.io/solar-picker:latest"
+
+
+[[services]]
+  force_https = true # optional
+  internal_port = 8000
+  auto_stop_machines = false
+  auto_start_machines = false
+  min_machines_running = 1
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80

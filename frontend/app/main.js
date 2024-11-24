@@ -1,6 +1,7 @@
 import { map as Lmap, tileLayer as LtileLayer, popup as Lpopup } from "leaflet";
 
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = "https://solar-picker.fly.dev";
+//const BACKEND_URL = "http://127.0.0.1:8000";
 
 function init_map() {
 	const map = Lmap("map").setView([45.120053, 29.509277], 6);
@@ -21,7 +22,8 @@ async function onMapClick(e, map) {
 			new URLSearchParams({
 				lat: lat,
 				lon: lon,
-			}).toString()
+			}).toString(),
+		{mode: 'cors'}
 	);
 	const data = await response.json();
 	const [str_lat, str_lon] = [lat.toFixed(4), lon.toFixed(4)];
