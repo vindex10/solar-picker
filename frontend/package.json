@@ -1,12 +1,14 @@
 {
-  "dependencies": {
-    "prettier": "^3.3.3"
-  },
   "prettier": {
     "trailingComma": "es5",
     "tabWidth": 2,
     "semi": true,
     "singleQuote": false,
     "useTabs": true
+  },
+  "devDependencies": {
+    "eslint": "^9.15.0",
+    "prettier": "^3.3.3",
+    "eslint-config-prettier": "^9.1.0"
   }
 }
