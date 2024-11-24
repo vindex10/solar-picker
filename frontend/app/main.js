@@ -22,10 +22,11 @@ async function onMapClick(e, map) {
 			}).toString()
 	);
 	const data = await response.json();
-	const popup = L.popup()
-		.setLatLng(e.latlng)
-		.setContent(`Max wave height at latlng ${e.latlng} is ${data["hmax"]}`)
-		.openOn(map);
+	const [str_lat, str_lon] = [lat.toFixed(4), lon.toFixed(4)];
+	const msg = data["hmax"]
+		? `Max observed wave height at (${str_lat}, ${str_lon}) is ${data["hmax"].toFixed(2)}m`
+		: `We don't have information about this location: (${str_lat}, ${str_lon})`;
+	L.popup().setLatLng(e.latlng).setContent(msg).openOn(map);
 }
 
 (() => {
